@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+    <script>
+
+        function jsonp(url, callbackName) {
+            // Cria um nome de função exclusivo para evitar conflitos
+            const callbackFunctionName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+
+            // Cria um elemento <script> para fazer a solicitação JSONP
+            const script = document.createElement('script');
+            script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackFunctionName;
+            document.body.appendChild(script);
+
+            // Define a função de callback global
+            window[callbackFunctionName] = function (data) {
+                // Limpa o script e remove a função de callback global
+                document.body.removeChild(script);
+                delete window[callbackFunctionName];
+
+                // Chama a função de callback passada como parâmetro com os dados recebidos
+                callbackName(data);
+            };
+        }
+
+        // URL da API
+        const url = 'https://www.bling.com.br/Api/v3/produtos';
+        // Token de autorização
+        const token = 'a9a6da618b814e97a2b144364873eff1e48bb3ad';
+
+        // Função de callback para manipular os dados recebidos
+        function handleData(data) {
+            console.log(data);
+        }
+
+        // Chama a função jsonp para fazer a solicitação JSONP
+        jsonp(url + '?apikey=' + token, handleData);
+
+
+    </script>
+</body>
+
+</html>

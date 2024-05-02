@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1077736005447",
+    "project_id": "me-leva-ali-f5cef",
+    "storage_bucket": "me-leva-ali-f5cef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077736005447:android:f3ae9488b4f4df043eb662",
+        "android_client_info": {
+          "package_name": "com.example.me_leva_ali"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaMjj7LHyH7FEKckhoeKj4x6VFXJwvuB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
